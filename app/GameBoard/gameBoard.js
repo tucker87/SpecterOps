@@ -4,16 +4,21 @@
 'use strict';
 
 function updateVision(board, hunters) {
-    var watchedStreets = new Array();
-    $('#gameBoard td').removeClass('vision');
+    var watchedStreets = [];
+
+    $.each(board, function(index, row){
+        $.each(row, function(index, cell){
+           cell.isSeen = false;
+        });
+    });
+
     $.each(hunters, function (index, hunter) {
         addVision(board, hunter.column, hunter.row, -1, 0);
         addVision(board, hunter.column, hunter.row, 1, 0);
         addVision(board, hunter.column, hunter.row, 0, -1);
         addVision(board, hunter.column, hunter.row, 0, 1);
 
-        var cell = $($('#gameBoard tr').eq(hunter.row)[0].children[hunter.column+1]);
-        var onStreet = cell.hasClass('street');
+        var onStreet = board[hunter.row - 1][hunter.column].isStreet;
         if (onStreet) {
             $.each(board[hunter.row - 1][hunter.column].streetNames, function(index, street){
                 watchedStreets.push(street);
@@ -21,32 +26,34 @@ function updateVision(board, hunters) {
         }
     });
     console.log(watchedStreets);
-    addStreetVision(watchedStreets);
+    addStreetVision(board, watchedStreets);
 }
 
 function addVision(board, x, y, deltaX, deltaY) {
     var height = board.length;
     var width = board[0].length;
-    var row = $('#gameBoard tr').eq(y);
-    var column = $(row[0].children[x + 1]);
 
-
-    while (x > 0 && x < width && y > 1 && y < height) {
-        x += deltaX;
-        y += deltaY;
-        row = $('#gameBoard tr').eq(y);
-        column = $(row[0].children[x + 1]);
-        if (!column.hasClass('wall')) {
-            column.addClass('vision');
+    while (x >= 0 && x < width && y >= 1 && y < height) {
+        var cell = board[y-1][x];
+        if (!cell.isWall) {
+            cell.isSeen = true;
         } else {
             break;
         }
+        x += deltaX;
+        y += deltaY;
     }
 }
 
-function addStreetVision(watchedStreets) {
-    $.each(watchedStreets, function(index, street){
-       $('#gameBoard td.'+street).addClass('vision');
+function addStreetVision(board, watchedStreets) {
+    $.each(board, function(index, row){
+        $.each(row, function(index, cell){
+            $.each(watchedStreets, function(index, street){
+                if (cell.streetNames.indexOf(street) >= 0){
+                    cell.isSeen = true;
+                }
+            });
+        });
     });
 }
 

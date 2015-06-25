@@ -11,19 +11,19 @@
             </td>
         </tr>
         </thead>
-        <body>
+        <tbody>
         <tr ng-repeat="row in board" ng-init="rowIndex = $index">
             <td>
                 {{$index + 1}}
             </td>
-            <td ng-init="columnIndex = $index" ng-class="[row[columnIndex].streetNames, {'wall': row[columnIndex].isWall}, {'street': row[columnIndex].isStreet}]" ng-repeat="column in range(board[0].length) track by $index" ng-drop="true" ng-drop-success="dropCallback($data, $event, rowIndex, columnIndex)">
-                <div ng-if="spy.row == rowIndex+1 && spy.column == columnIndex" ng-drag="true" ng-drag-data="spy" ng-center-anchor="true" draggable="false">{{spy.title}}</div>
+            <td ng-init="columnIndex = $index" ng-class="[row[columnIndex].streetNames, {'wall': row[columnIndex].isWall}, {'street': row[columnIndex].isStreet}, {'vision': row[columnIndex].isSeen}]" ng-repeat="column in range(board[0].length) track by $index" ng-drop="true" ng-drop-success="dropCallback($data, $event, rowIndex, columnIndex)">
+                <div ng-if="spy.row == rowIndex+1 && spy.column == columnIndex" ng-drag="true" ng-drag-data="spy" ng-center-anchor="true">{{spy.title}}</div>
 
                 <div ng-repeat="hunter in hunters">
                     <div ng-if="hunter.row == rowIndex+1 && hunter.column == columnIndex" ng-drag="true" ng-drag-data="hunter">{{hunter.title}}</div>
                 </div>
             </td>
         </tr>
-        </body>
+        </tbody>
     </table>        
 </div>

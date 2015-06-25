@@ -29,7 +29,7 @@ angular.module('myApp.GameBoard', ['ngRoute'])
             for (var c = 0; c < map.width; c++) {
                 var cell = {};
                 cell.isWall = map.walls[r].indexOf(c) >= 0;
-                cell.streetNames = new Array();
+                cell.streetNames = [];
                 board[r][c] = cell;
             }
         }
@@ -54,7 +54,7 @@ angular.module('myApp.GameBoard', ['ngRoute'])
                 $scope.spy.column = column;
             }
 
-            if (data.title > 0 && data.title < 5) {3
+            if (data.title > 0 && data.title < 5) {
                 console.log(data.title);
                 console.log(hunters);
                 console.log($scope.hunters[data.title - 1]);
@@ -67,4 +67,5 @@ angular.module('myApp.GameBoard', ['ngRoute'])
         };
 
         drawStreets($scope.board, map.streets);
+        updateVision($scope.board, $scope.hunters);
     }]);
