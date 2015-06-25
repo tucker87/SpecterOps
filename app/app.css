@@ -28,3 +28,32 @@
   content: "";
   padding: 0;
 }
+
+#gameBoard table,
+#gameBoard td {
+  border-collapse:collapse;
+  border:1px solid black;
+}
+
+#gameBoard td {
+  width: 20px;
+  height: 20px;
+  overflow: visible;
+  font-size: small;
+}
+
+#gameBoard thead td {
+  text-align: center;
+}
+
+.wall {
+  background: black;
+}
+
+.street {
+  background: gray;
+}
+
+.vision {
+  background: blue;
+}
