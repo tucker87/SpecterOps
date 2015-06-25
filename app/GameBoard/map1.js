@@ -41,39 +41,42 @@ function getMap1() {
         [1, 2, 5, 7, 8, 11, 15, 19, 21] //Row32
     ];
     map1.streets = [
-        [13, 14], //Row1
-        [13, 14], //Row2
-        [13, 14], //Row6
-        [13, 14], //Row3
-        [13, 14], //Row4
-        [13, 14], //Row5
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //Row7
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //Row8
-        [13, 14], //Row9
-        [13, 14], //Row10
-        [13, 14], //Row11
-        [13, 14, 15, 16, 17, 18, 19, 20, 21, 22], //Row12
-        [13, 14, 15, 16, 17, 18, 19, 20, 21, 22], //Row13
-        [13, 14], //Row14
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //Row15
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //Row16
-        [9, 10], //Row17
-        [9, 10], //Row18
-        [9, 10], //Row19
-        [9, 10], //Row20
-        [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], //Row21
-        [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], //Row22
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], //Row23
-        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], //Row24
-        [9, 10], //Row25
-        [9, 10], //Row26
-        [9, 10], //Row27
-        [9, 10], //Row28
-        [9, 10], //Row29
-        [9, 10], //Row30
-        [9, 10], //Row31
-        [9, 10], //Row32
-    ]
+        {
+            name: 'Street1',
+            start: {row: 0,column: 13},
+            end:{row: 15,column: 14}
+        },
+        {
+            name: 'Street2',
+            start:{row: 6,column: 0},
+            end:{row:7,column:14}
+        },
+        {
+            name: 'Street3',
+            start:{row:11, column: 13},
+            end:{row:12, column:22}
+        },
+        {
+            name: 'Street4',
+            start:{row: 14, column: 0},
+            end:{row: 15, column: 14}
+        },
+        {
+            name: 'Street5',
+            start:{row: 14, column:9},
+            end:{row: 31, column: 10}
+        },
+        {
+            name: 'Street6',
+            start:{row: 20, column:9},
+            end:{row: 21, column: 22}
+        },
+        {
+            name: 'Street7',
+            start:{row:22, column: 0},
+            end:{row: 23, column: 10}
+        }
+    ];
     map1.agentStart = {column: 13, row: 1};
     map1.hunterStart = {column: 10, row: 18};
     return map1;

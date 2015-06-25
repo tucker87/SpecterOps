@@ -1,4 +1,7 @@
 <div id="gameBoard">
+    <ul>
+        <li><div ng-drag="true" ng-drag-data="0">TestingDrag</div></li>
+    </ul>
     <table>
         <thead>
         <tr>
@@ -13,13 +16,12 @@
             <td>
                 {{$index + 1}}
             </td>
-            <td ng-init="columnIndex = $index" ng-class="[{'wall': row[columnIndex].isWall}, {'street': row[columnIndex].isStreet}]" ng-repeat="column in range(board[0].length) track by $index" data-drop="true" jqyoui-droppable="{onDrop: 'dropCallback(columnIndex, rowIndex)'}" data-jqyoui-options>
-                <span ng-if="spy.row == rowIndex+1 && spy.column == columnIndex" data-drag="true" ng-model="spy" jqyoui-draggable="{onStart: 'startCallback(spy.title)'}" data-jqyoui-options="{revert: 'invalid'}">{{spy.title}}</span>
-                
-                <span ng-if="hunters[0].row == rowIndex+1 && hunters[0].column == columnIndex" data-drag="true" ng-model="hunters" jqyoui-draggable="{onStart: 'startCallback(hunters[0].title)'}" data-jqyoui-options="{revert: 'invalid'}">{{hunters[0].title}}</span>
-                <span ng-if="hunters[1].row == rowIndex+1 && hunters[1].column == columnIndex" data-drag="true" ng-model="hunters" jqyoui-draggable="{onStart: 'startCallback(hunters[1].title)'}" data-jqyoui-options="{revert: 'invalid'}">{{hunters[1].title}}</span>
-                <span ng-if="hunters[2].row == rowIndex+1 && hunters[2].column == columnIndex" data-drag="true" ng-model="hunters" jqyoui-draggable="{onStart: 'startCallback(hunters[2].title)'}" data-jqyoui-options="{revert: 'invalid'}">{{hunters[2].title}}</span>
-                <span ng-if="hunters[3].row == rowIndex+1 && hunters[3].column == columnIndex" data-drag="true" ng-model="hunters" jqyoui-draggable="{onStart: 'startCallback(hunters[3].title)'}" data-jqyoui-options="{revert: 'invalid'}">{{hunters[3].title}}</span>
+            <td ng-init="columnIndex = $index" ng-class="[row[columnIndex].streetNames, {'wall': row[columnIndex].isWall}, {'street': row[columnIndex].isStreet}]" ng-repeat="column in range(board[0].length) track by $index" ng-drop="true" ng-drop-success="dropCallback($data, $event, rowIndex, columnIndex)">
+                <div ng-if="spy.row == rowIndex+1 && spy.column == columnIndex" ng-drag="true" ng-drag-data="spy" ng-center-anchor="true" draggable="false">{{spy.title}}</div>
+
+                <div ng-repeat="hunter in hunters">
+                    <div ng-if="hunter.row == rowIndex+1 && hunter.column == columnIndex" ng-drag="true" ng-drag-data="hunter">{{hunter.title}}</div>
+                </div>
             </td>
         </tr>
         </body>
