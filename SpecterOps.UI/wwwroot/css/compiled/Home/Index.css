@@ -1,7 +1,8 @@
-#target {
-  font: 100% Helvetica, sans-serif;
-  color: #333; }
-  #target label {
-    font-weight: bold; }
-  #target span {
-    color: blue; }
+#board {
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  grid-template-rows: repeat(23, 1fr); }
+  #board span {
+    border: 1px solid black; }
+  #board span.hacker {
+    background-color: blue; }

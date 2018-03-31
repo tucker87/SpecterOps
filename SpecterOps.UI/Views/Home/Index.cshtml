@@ -6,7 +6,21 @@
 
 <link rel="stylesheet" href="css/compiled/Home/Index.css"/>
 
-<div id="target">
-    <label>@Model.Players[0].Name</label>
-    <span>@Model.Board.GetCell("A1").State</span>
+<div id="board">
+    <template v-for="row in board.cells">
+        <template v-for="column in row">
+            <span v-bind:class="{ hacker: column.state }">{{ column.name }}</span>
+        </template>
+    </template>
+    
 </div>
+
+@section Scripts {
+    <script>
+        var model = @Html.Raw(Json.Serialize(@Model));
+        var board = new Vue({
+            el: "#board",
+            data: model
+        })
+    </script>
+}

@@ -1,0 +1,6 @@
+@model List<List<Cell>>
+
+@for(var i=0;i<Model.Count;i++)
+{
+    @Html.EditorFor(m => m[i], "Rows")
+}

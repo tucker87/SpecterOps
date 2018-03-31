@@ -14,6 +14,7 @@ namespace SpecterOps2.Controllers
         public IActionResult Index()
         {
             var game = new SOGame(3);
+            game.Board.GetCell("U5").State = State.Hacker;
 
             return View(game);
         }

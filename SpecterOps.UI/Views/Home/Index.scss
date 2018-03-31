@@ -1,13 +1,14 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
-#target {
-  font: 100% $font-stack;
-  color: $primary-color;
-  label {
-      font-weight: bold;
-  }
+#board {
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  grid-template-rows: repeat(23, 1fr);
   span {
-    color: blue;
+    border: 1px solid black;
+  }
+  span.hacker {
+    background-color: blue;
   }
 }

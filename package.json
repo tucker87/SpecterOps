@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Tool for tracking moves in the Specter Ops board game.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
