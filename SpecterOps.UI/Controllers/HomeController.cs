@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SpecterOps2.Models;
+using SpecterOps.Game;
+using SpecterOps.UI.Models;
 
 namespace SpecterOps2.Controllers
 {
@@ -12,7 +13,9 @@ namespace SpecterOps2.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var game = new SOGame(3);
+
+            return View(game);
         }
 
         public IActionResult Error()

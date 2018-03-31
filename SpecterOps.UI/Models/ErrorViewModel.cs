@@ -1,6 +1,6 @@
 using System;
 
-namespace SpecterOps2.Models
+namespace SpecterOps.UI.Models
 {
     public class ErrorViewModel
     {

@@ -1,10 +1,12 @@
-﻿@{
+﻿@model SOGame;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <link rel="stylesheet" href="css/compiled/Home/Index.css"/>
 
 <div id="target">
-    <label>Target</label>
-    <span>Content</span>
+    <label>@Model.Players[0].Name</label>
+    <span>@Model.Board.GetCell("A1").State</span>
 </div>
