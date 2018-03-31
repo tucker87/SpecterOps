@@ -1,0 +1,10 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+#target {
+  font: 100% $font-stack;
+  color: $primary-color;
+  label {
+      font-weight: bold;
+  }
+}

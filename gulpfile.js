@@ -4,14 +4,12 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('scripts', function(){
-    return gulp.src('node_modules/vue/dist/vue.js')
-      .pipe(gulp.dest('wwwroot/js/vue/'))
   });
 
 gulp.task('sass', function () {
-  gulp.src('*.scss')
+  gulp.src('SpecterOps.UI/Views/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('SpecterOps.UI/wwwroot/css/compiled/'));
 });
  
 gulp.task('watch', function () {

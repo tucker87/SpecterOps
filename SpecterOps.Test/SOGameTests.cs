@@ -26,5 +26,7 @@ namespace SpecterOps.Test
             Assert.Equal("Player1", game.Players[0].Name);
             Assert.Equal("Player2", game.Players[1].Name);
         }
+
+        
     }
 }
