@@ -13,8 +13,8 @@ gulp.task('sass', function () {
 });
  
 gulp.task('watch', function () {
-  gulp.watch('*.scss', ['sass']);
-  gulp.watch('*.js', ['scripts']);
+  gulp.watch('SpecterOps.UI/Views/**/*.scss', ['sass']);
+  gulp.watch('SpecterOps.UI/Views/**/*.js', ['scripts']);
 });
 
 gulp.task('default', [ 'scripts', 'sass']);

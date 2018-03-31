@@ -3,3 +3,5 @@
   color: #333; }
   #target label {
     font-weight: bold; }
+  #target span {
+    color: blue; }
