@@ -15,11 +15,6 @@ namespace SpecterOps2.Controllers
             return View();
         }
 
-        public IActionResult GetData()
-        {
-            return Json(new {values = DataLayer.GetWows()});
-        }        
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

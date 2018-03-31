@@ -7,7 +7,17 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SpecterOps2.csproj"
+                "${workspaceFolder}/SpecterOps.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/SpecterOps.Test/SpecterOps.Test.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
